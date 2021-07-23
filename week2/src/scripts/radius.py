@@ -7,13 +7,14 @@ def radfun():
     pub = rospy.Publisher('radius', flo, queue_size=10)
     rospy.init_node('rpub', anonymous=True)
     rate = rospy.Rate(10) 
+    print("Radius Entered")   
     while not rospy.is_shutdown():
-        rad = flo()
-        rad.radius = 0.9
-        print(rad.radius)
-        pub.publish(rad)
+        
+        radius = 0.9
+        #rospy.loginfo(radius)
+        pub.publish(radius)
         rate.sleep()
-
+  
 if __name__ == '__main__':
     try:
         radfun()
