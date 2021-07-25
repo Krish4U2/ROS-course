@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import matplotlib.pyplot as plt
+
 import sys
 import rospy
 from week2.srv import *
@@ -11,15 +11,9 @@ def plotter(v: float, w: float):
        try:
               trajectory = rospy.ServiceProxy('trajectory', values)
               response = trajectory(v, w)
-              xp = response.x_points
-              yp = response.y_points
-              print('Plotting...')
-              plt.title(f"Unicycle Model: {v}, {w}")
-              plt.xlabel("X-Coordinates")
-              plt.ylabel("Y-Coordinates")
-              plt.plot(xp, yp, color="red", alpha=0.75)
-              plt.grid()
-              plt.show()
+              xp = response
+              yp = response
+              
 
        except rospy.ServiceException as e:
               print("Service call failed: %s"%e)
@@ -31,5 +25,3 @@ if __name__ == "__main__":
            print("v = ", v)
            print("W = ", w) 
            plotter(v, w)
-       
-        
