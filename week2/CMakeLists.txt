@@ -9,16 +9,17 @@ find_package(catkin REQUIRED COMPONENTS
   message_generation
 )
 
-#add_message_files(
- # FILES
- # Num.msg
-#)
+add_message_files(
+  FILES
+  flo.msg
+)
 
 add_service_files(
   FILES
  #AddTwopoints.srv 
  #trajectory.srv
   values.srv
+  data.srv
 )
 
 generate_messages(
